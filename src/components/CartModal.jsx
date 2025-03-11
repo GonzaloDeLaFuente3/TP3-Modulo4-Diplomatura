@@ -45,9 +45,9 @@ function CartModal({ onClose }) {
                     className="w-12 h-12 object-cover rounded-lg"
                     />
 
-                    <span className="text-lg text-black">{product.name}</span>
+                    <span className="text-base sm:text-lg text-black ">{product.name}</span>
 
-                    <span className="text-lg text-gray-600 ">$ {product.price}</span>
+                    <span className="text-base sm:text-lg text-gray-600 ">$ {product.price}</span>
                     
                 </div>
 
