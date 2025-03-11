@@ -37,19 +37,19 @@ function CartModal({ onClose }) {
                 >
 
                     {/* Contenedor para la imagen y el título */}
-                <div className="flex items-center justify-between space-x-4">
-                    {/* Imagen del product */}
-                    <img
-                    src={product.image} // Asegúrate de que product.image sea una ruta válida
-                    alt={product.name}
-                    className="w-12 h-12 object-cover rounded-lg"
-                    />
+                    <div className="flex flex-col items-center sm:flex-row sm:items-start sm:justify-between space-y-2 sm:space-y-0 sm:space-x-4">
+                        {/* Imagen del producto */}
+                        <img
+                            src={product.image} // imagen del producto
+                            alt={product.name}
+                            className="w-12 h-12 object-cover rounded-lg mb-2 sm:mb-0"
+                        />
 
-                    <span className="text-base sm:text-lg text-black ">{product.name}</span>
-
-                    <span className="text-base sm:text-lg text-gray-600 ">$ {product.price}</span>
-                    
-                </div>
+                        <div className="text-center sm:text-left space-y-1">
+                            <span className="text-lg text-black block">{product.name}</span>
+                            <span className="text-lg text-gray-600 block">$ {product.price}</span>
+                        </div>
+                    </div>
 
                 
                     
