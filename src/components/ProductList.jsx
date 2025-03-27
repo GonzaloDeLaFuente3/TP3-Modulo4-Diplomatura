@@ -9,6 +9,7 @@ import mouse from '../assets/mouse.jpg'
 import mouse_pad from '../assets/mouse-pad.jpg'
 import teclado from '../assets/teclado.jpg'
 
+// es un array de objetos
 const products = [
     { id: 1, name: "Laptop", price: 900000, image:laptop },
     { id: 2, name: "Auriculares", price: 20000, image:auriculares },
@@ -19,30 +20,35 @@ const products = [
 ];
 
 function ProductList() {
+    // extraigo addToCart para agregar productos al carrito 
     const { addToCart } = useContext(CartContext);
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
-            {products.map((product) => (
+            {products.map((product) => (/* recorro el arrat de productos y renderizo c/u */
                 
                 <div key={product.id} className="bg-blue-100 border p-4 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-blue-200  flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center flex-grow">{product.name}</h3>
+                
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center flex-grow">{product.name}</h3>
 
-                <div className="relative aspect-w-16 aspect-h-9">
-                    <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-64 object-cover object-center rounded-xl"
-                    />
-                </div>
+                    {/* imagen del product */}
+                    <div className="relative aspect-w-16 aspect-h-9">
+                        <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-64 object-cover object-center rounded-xl"
+                        />
+                    </div>
 
-                <p className="text-gray-600 font-bold text-xl text-center">${product.price}</p>
-                <button
-                    onClick={() => addToCart(product)}
-                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95 mt-2 cursor-pointer"
-                >
-                    Agregar al carrito
-                </button>
+                    <p className="text-gray-600 font-bold text-xl text-center">${product.price}</p>
+
+                    {/* Botón "Agregar al carrito" */}
+                    <button
+                        onClick={() => addToCart(product)}
+                        className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95 mt-2 cursor-pointer"
+                    >
+                        Agregar al carrito
+                    </button>
                 </div>
             ))}
         </div>
